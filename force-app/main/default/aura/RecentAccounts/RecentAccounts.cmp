@@ -1,0 +1,21 @@
+<aura:component controller="AccountController" implements="force:appHostable,forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes" access="global">
+<aura:handler name="init" value="{!this}" action="{!c.doInit}" /> <!-- calling doInit method in Component Controller -->
+<aura:attribute name="accLst" type="Account[]"/> <!-- create Array type Account variable-->
+    <!-- Lightning card to show Accounts -->
+        <lightning:card >
+         <aura:set attribute="title">
+            <lightning:icon iconName="standard:account" size="small"/>
+            Recent Accounts
+        </aura:set>
+        <!-- Body of lightning card starts here -->
+        <!-- Aura iteration to iterate list, similar to apex:repeat -->
+        <aura:iteration items="{!v.accLst}" var="account">
+            <lightning:tile  label="{!account.Name}" class="slds-p-left_medium">
+                <ul class="slds-list_horizontal slds-has-dividers_right">
+                    <li class="slds-item">{!account.Phone}</li>
+                    <li class="slds-item">{!account.Website}</li>
+                </ul>
+            </lightning:tile>     
+     </aura:iteration>
+    </lightning:card>
+</aura:component>

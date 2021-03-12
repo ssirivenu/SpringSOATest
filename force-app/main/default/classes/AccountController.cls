@@ -1,4 +1,4 @@
-public  with sharing class AccountController {
+public class AccountController {
     @AuraEnabled
     public static List<Account> getAccountRecord(){
         return new List<Account>([Select Id,Name,Phone,Website 
@@ -6,5 +6,4 @@ public  with sharing class AccountController {
                                   ORDER BY CreatedDate 
                                   DESC LIMIT 10]);
     }
-	
 }
